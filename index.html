@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Makeup</title>
+</head>
+<body>
+<h1>Beauty Cosmetics</h1>
+
+<div>
+  <input autofocus placeholder="search" class="form-control" 
+  type="text" autocomplete="off" name="search" id= "search-bar">
+</div>
+<div>
+    <label for="select-products">Product Category: </label>
+        
+    <select id="product-dropdown" name="select-product" onchange="dropDownListener()">
+          <option value="cream">Cream</option>
+          <option value="lipstick">Lipstick</option>
+          <option value="lip_gloss">Lip Gloss</option>
+          <option value="liquid">Liquid</option>
+          <option value="palette">Palette</option>
+          <option value="pencil">Pencil</option>
+          <option value="powder">Powder</option>
+        </select>
+    </div>
+<div id="main">
+<ul id="makeup-list">
+
+</ul>
+<h3>Reviews On Products</h3>
+ <ul id="review-list">
+ </ul>
+    <form id="reviews">
+        <label>Write A Review</label>
+        <input type="text" id="review-input">
+        <input type="submit" class="submit-btn">
+    </form>
+</div>
+
+
+    <script src="src/index.js"></script>
+</body>
+</html>

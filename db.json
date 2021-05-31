@@ -1,0 +1,36 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "content": "The liquid eye shadow is amazing!"
+    },
+    {
+      "content": "You should definitely try the pressed foundation. It was a perfect match!",
+      "id": 2
+    },
+    {
+      "content": "The loose mineral eyeshadow is fabbbbb",
+      "id": 3
+    },
+    {
+      "content": "I wouldn't try the the gel liner, it was just to dry after only using it once",
+      "id": 4
+    },
+    {
+      "content": "the lip gloss was pretty sticky, buy at your own risk",
+      "id": 5
+    },
+    {
+      "content": "Try the lip crayons, you won't regret it. Soo colorful and vibrant :)",
+      "id": 6
+    },
+    {
+      "content": "love love this b smudged eyeshadow",
+      "id": 7
+    },
+    {
+      "content": "this lip gloss is the bomb",
+      "id": 8
+    }
+  ]
+}

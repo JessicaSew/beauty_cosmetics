@@ -1,0 +1,92 @@
+*,
+*::before,
+* ::after
+{
+    font-family:sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+html {
+      scroll-behavior: smooth;
+     }
+
+body {
+    margin: 0;
+    line-height: 1.6;
+     }
+
+h1 {
+    position:relative;
+    font-family: fantasy;
+    font-size: 35px;
+   }
+ 
+h3 {
+       justify-content: space-between;
+       font-size: 20px;
+       line-height: 1;
+       margin: 0;
+   } 
+
+img {
+    height: 320px;
+    width: 300px;
+    display: block;
+    max-width: 100%;
+    }
+
+#search-bar {
+    position: absolute;
+    top: 50px;
+    right: 400px;
+    width: 200px;
+    height: 30px;
+            }
+
+#product-dropdown {
+    position: absolute;           
+                  }
+
+ul {
+    margin: auto;
+    padding: 20px;
+   }
+
+p {
+    position: relative;
+    align-content: center;
+  }
+
+#makeup-list {
+    display: inline-block;
+             }
+
+a {
+    align-content: center;
+  }
+
+button {
+    letter-spacing: 2px;
+    position: absolute;
+    right: 800px;
+    top: 100px ;
+    cursor: pointer;
+       }
+
+#reviews {
+    position: relative;
+         }
+
+#review-input {
+    position: relative;
+              }
+
+#review-list {
+    position: relative;
+             }
+
+.submit-btn {
+    letter-spacing: 2px;
+    cursor: pointer;
+}
