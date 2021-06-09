@@ -1,5 +1,6 @@
-let arrayMakeup; //this is global and other functions reference to it for stored data
-
+//this is global and other functions reference to it for stored data
+let arrayMakeup; 
+const SIZE = 100;
 document.addEventListener('DOMContentLoaded', () => {
     const productDropDown = document.getElementById("product-dropdown")
     const makeupContainer = document.getElementById("makeup-list")
@@ -22,21 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function fetchMakeup(makeupContainer) 
 {
-    let i;
-
     fetch('http://makeup-api.herokuapp.com/api/v1/products.json?product_catergory')
     .then(res => res.json())
     .then(data => 
     {
-    for (i = 0; i < 500; i++) 
-    {
-        //console.log(data[i])
-        renderMakeup(data[i],makeupContainer)
-    }
-    // ArrayMakeup stores the fetch data 
-      arrayMakeup = data
-    })
+        let count = 0
+        for (const element of data) 
+        {
+            count = count+1; 
+            if (count < SIZE)
+            {
 
+                console.log(element)
+                renderMakeup(element,makeupContainer)
+            }
+        }
+        arrayMakeup = data
+    })
     .catch(function(error)
     {
         console.log(error)
@@ -61,13 +64,17 @@ function fetchMakeup(makeupContainer)
         // search value case insensitive and the product name including 
         // the value
 
-        for (i = 0; i < 500; i++) 
+        let count = 0
+        for (const element of arrayMakeup) 
         {
-
-            value = value.trim().toLowerCase();
-            if (arrayMakeup[i].name.toLowerCase().includes(value))
+            count = count+1; 
+            if (count < SIZE)
             {
-                renderMakeup(arrayMakeup[i], makeupContainer)
+                value = value.trim().toLowerCase();
+                if (element.name.toLowerCase().includes(value))
+                {
+                    renderMakeup(element, makeupContainer)
+                }
             }
         }
     }
@@ -200,18 +207,22 @@ function dropDownListener()
 // rendering the makeup based off of the product category if only
 // it starts with the drop down value
 
-  for (i = 0; i < 500; i++) 
+let count = 0
+for (const element of arrayMakeup) 
+{
+    count = count+1; 
+    if (count < SIZE)
     {
         // checking to see if category is not empty
-         if(arrayMakeup[i].category != null)
+         if(element.category !== null)
          {
-             if (arrayMakeup[i].category.startsWith(dropDownValue))
+             if (element.category.startsWith(dropDownValue))
              {
-                 renderMakeup(arrayMakeup[i], makeupContainer)
+                 renderMakeup(element,makeupContainer)
              }   
          }
     }
-
+}
     //product button is rendered for the product catergory
 
     const productBtn = document.createElement("button")
@@ -229,10 +240,14 @@ function dropDownListener()
 
 function clickListener(makeupContainer)
 {
-  makeupContainer.innerHTML = ""
-  
-  for (i = 0; i < 500; i++) 
-    {  
-        renderMakeup(arrayMakeup[i],makeupContainer)
+    makeupContainer.innerHTML = ""
+    let count = 0
+    for (const element of arrayMakeup) 
+    {
+      count = count+1; 
+      if (count < SIZE)
+        {
+            renderMakeup(element,makeupContainer)
+        }
     }
 }
