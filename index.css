@@ -59,7 +59,9 @@ p {
   }
 
 #makeup-list {
-    display: inline-block;
+    display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-left: 30px;
              }
 
 a {

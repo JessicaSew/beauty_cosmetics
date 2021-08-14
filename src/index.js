@@ -1,6 +1,5 @@
 //this is global and other functions reference to it for stored data
 let arrayMakeup; 
-const SIZE = 100;
 document.addEventListener('DOMContentLoaded', () => {
     const productDropDown = document.getElementById("product-dropdown")
     const makeupContainer = document.getElementById("makeup-list")
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fetchMakeup(makeupContainer)
 
-    productDropDown.addEventListener("click", dropDownListener);
+    productDropDown.addEventListener("change", dropDownListener);
 
     searchInput.addEventListener("input", (event) => 
     {
@@ -26,19 +25,12 @@ function fetchMakeup(makeupContainer)
     fetch('http://makeup-api.herokuapp.com/api/v1/products.json?product_catergory')
     .then(res => res.json())
     .then(data => 
-    {
-        let count = 0
-        for (const element of data) 
         {
-            count = count+1; 
-            if (count < SIZE)
-            {
-
-                console.log(element)
+      arrayMakeup = data.slice(0,40)
+        for (const element of arrayMakeup) 
+        {
                 renderMakeup(element,makeupContainer)
-            }
         }
-        arrayMakeup = data
     })
     .catch(function(error)
     {
@@ -52,31 +44,24 @@ function fetchMakeup(makeupContainer)
 
  function searchListener(event, makeupContainer)
  {
-    let value = event.target.value
+    let value = event.target.value.trim().toLowerCase()
     //if the field is not empty check the length and then 
     // .trim() removes whitespaces before the string and after 
     
-    if (value && value.trim().length > 0)
+    if (value)
     {
     // clears the container so the data is not appended to the container
         makeupContainer.innerHTML = ""
         // the for loop is rendering the makeup data and making the 
         // search value case insensitive and the product name including 
         // the value
-
-        let count = 0
-        for (const element of arrayMakeup) 
-        {
-            count = count+1; 
-            if (count < SIZE)
+        
+        arrayMakeup.map((element) => {
+            if (element.name.toLowerCase().includes(value))
             {
-                value = value.trim().toLowerCase();
-                if (element.name.toLowerCase().includes(value))
-                {
-                    renderMakeup(element, makeupContainer)
-                }
-            }
-        }
+                renderMakeup(element, makeupContainer)
+            } 
+        })
     }
  }
 
@@ -251,3 +236,5 @@ function clickListener(makeupContainer)
         }
     }
 }
+
+
